@@ -40,6 +40,7 @@ def get_snowflake_session(_force_login):
     else:
         session=st.session_state.snowparksession
         try:
+            st.info('trying to collect snowparksession')
             st.session_state.snowparksession.sql('Select 1').collect()
         except BaseException as e:
             st.error('Login Failed. Please login again.')# + str(e))
@@ -82,6 +83,7 @@ def login_callback():
         session = Session.builder.configs(connection_parameters).create()
         st.session_state.snowparksession = session   
         st.session_state.login_expanded = False
+        st.info('logged in')
     except BaseException as e:
         st.error('Login Failed: ' + str(e))
 
