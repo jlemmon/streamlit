@@ -1,0 +1,5 @@
+pyarrow==6.0.0
+pandas
+streamlit
+streamlit-aggrid
+snowflake-snowpark-python
